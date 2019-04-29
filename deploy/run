@@ -1,0 +1,18 @@
+#!/bin/bash
+
+# exit if any command in this script fails
+set -e
+
+# enable bash debugging
+set -x
+
+set -o pipefail
+
+echo "Deploying asset-flask app"
+
+source /app/.env
+
+cp -r "/app/supervisord.conf" "/etc/supervisor/conf.d/flask-asset.conf"
+
+sed -i 's/^\(\[supervisord\]\)$/\1\nnodaemon=true/' /etc/supervisor/supervisord.conf
+supervisord -c /etc/supervisor/supervisord.conf

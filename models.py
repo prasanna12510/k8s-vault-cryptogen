@@ -36,7 +36,7 @@ def get_assets(params=None):
 
 
 def add_asset(asset_dict):
-    print('inside add asset')
+    logging.info('inside add asset')
     errors=[]
     try:
         new_asset = Asset(name=asset_dict['name'], \
@@ -44,10 +44,9 @@ def add_asset(asset_dict):
                             asset_data=asset_dict['asset_data'])
         response=store_vault(asset_dict['name'],asset_dict['asset_data'])
         if response.status_code == 204:
-            print('Inside commit session')
             session.add(new_asset)
             session.commit()
-            print('session commited successfully')
+            logging.info('session commited successfully')
     except Exception as e:
         logging.exception(sys.exc_info()[0])
         errors.append(e)
@@ -56,7 +55,7 @@ def add_asset(asset_dict):
 
 def store_vault(asset_name,asset_data):
 
-    print('inside store_vault', json.dumps(asset_data))
+    loggin.info('inside store_vault', json.dumps(asset_data))
     VAULT_TOKEN="3e4a5ba1-kube-422b-d1db-844979cab098"
     headers = {'X-Vault-Token': VAULT_TOKEN}
     URL="http://104.43.240.36:8200/v1/cubbyhole"
@@ -65,5 +64,5 @@ def store_vault(asset_name,asset_data):
     store_data={asset_name : asset_data}
 
     response = requests.post(VAULT_URL, data=json.dumps(store_data), headers=headers)
-    print('asset added successfully to secret engine ',response.text)
+    logging.info('asset added successfully to secret engine ',response.text)
     return response

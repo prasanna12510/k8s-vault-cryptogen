@@ -3,7 +3,6 @@ from flask import Flask, render_template, abort, request,\
 from flask_sqlalchemy import SQLAlchemy
 from werkzeug.utils import secure_filename
 
-from flaskext.mysql import MySQL
 
 import random
 import string
