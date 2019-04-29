@@ -13,27 +13,27 @@ python3 manage.py runserver
 
 And finally, browse to [http://localhost:5000/](http://localhost:5000).
 
-##Steps:
+## Steps:
 1.Created Kubernetes Cluster on Azure using AKS and Terraform.
 2.deployed vault Secret Engine and Consul for Secret Storage, I used cubbyhole as secret Engine.
 3.Hosted Redis and Mysql on Azure for secret storage and secret processing.
 4.developed frontend application using FLASK and SQLAlchemy for Interacting for Secret Storage
 
-##K8s cluster on Azure
+## K8s cluster on Azure
 ![Alt text](static/images/k8s_cluster.png?raw=true "k8s_cluster")
 
-##Adding Asset
+## Adding Asset
 ![Alt text](static/images/store_asset.png?raw=true "store_asset")
 
-##Getting the task status
+## Getting the task status
 ![Alt text](static/images/task_status.png?raw=true "task_status")
 ![Alt text](static/images/task_completed.png?raw=true "task_completed")
 
-##added into database
+## added into database
 ![Alt text](static/images/added_to_db.png?raw=true "added_to_db")
 
-##added into secret Engine
+## added into secret Engine
 ![Alt text](static/images/assets_secretengine.png?raw=true "get assets from secretEngine")
 
-##List of assets
+## List of assets
 ![Alt text](static/images/asset_list.png?raw=true "get assets from db")
