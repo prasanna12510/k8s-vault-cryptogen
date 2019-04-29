@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+{% block title %}Assets{% endblock %}
+
+{% block head %}
+{{ super() }}
+{% endblock %}
+
+{% block content %}
+
+  <h3>Stored Assets - {{ target }}</h3>
+
+  <ul id="assets-list">
+  {% for asset in assets %}
+    <li>
+      <p>{{ asset['name'] }} -- {{ asset['asset_filename']}}</p>
+    </li>
+  {% endfor %}
+  </ul>
+
+  <a class="btn-sm btn-primary" href="{{url_for('upload_asset')}}">Upload Asset</a>
+
+{% endblock %}

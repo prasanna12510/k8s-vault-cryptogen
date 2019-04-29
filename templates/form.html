@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+{% block title %}Add an Asset{% endblock %}
+
+{% block head %}
+{{ super() }}
+{% endblock %}
+
+{% block content %}
+
+<h3>Store Asset</h3>
+
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+<ul id="messages" class="alert alert-success" role="alert">
+  {% for message in messages %}
+    <li>{{ message }}</li>
+  {% endfor %}
+</ul>
+{% endif %}
+{% endwith %}
+
+<form id="add-asset-form" method="POST" action="{{url_for('upload_asset')}}"
+    enctype="multipart/form-data">
+  <div id="group-name" class="form-group">
+      <label for="in-name">Name</label>
+      <input type="text" class="form-control" id="in-name"
+        name="name" placeholder="Name">
+  </div>
+  <div id="group-target" class="form-group">
+      <div class="btn-group" data-toggle="buttons">
+          <label class="btn btn-primary active">
+              <input type="radio" name="target" value="db" autocomplete="off" checked> DB
+          </label>
+      </div>
+  </div>
+  <div id="group-file" class="form-group">
+      <label for="in-file">Select Asset File</label>
+      <input type="file" class="form-control" id="in-file" name="file">
+  </div>
+  <button id="btn-submit" class="btn btn-primary">Submit</button>
+</form>
+
+{% endblock %}
