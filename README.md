@@ -6,18 +6,18 @@ a database(currently supported) and on the filesystem/S3 (can be added later) us
 
 ## Installation
 
-pip3 install -r requirements.txt
-python3 manage.py db upgrade
-python3 manage.py runserver
+pip3 install -r requirements.txt <br />
+python3 manage.py db upgrade <br />
+python3 manage.py runserver <br />
 
 
 And finally, browse to [http://localhost:5000/](http://localhost:5000).
 
 ## Steps:
-1.Created Kubernetes Cluster on Azure using AKS and Terraform.
-2.deployed vault Secret Engine and Consul for Secret Storage, I used cubbyhole as secret Engine.
-3.Hosted Redis and Mysql on Azure for secret storage and secret processing.
-4.developed frontend application using FLASK and SQLAlchemy for Interacting for Secret Storage
+1.Created Kubernetes Cluster on Azure using AKS and Terraform. <br />
+2.deployed vault Secret Engine and Consul for Secret Storage, I used cubbyhole as secret Engine. <br />
+3.Hosted Redis and Mysql on Azure for secret storage and secret processing. <br />
+4.developed frontend application using FLASK and SQLAlchemy for Interacting for Secret Storage <br />
 
 ## K8s cluster on Azure
 ![Alt text](static/images/k8s_cluster.png?raw=true "k8s_cluster")

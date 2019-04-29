@@ -3,10 +3,10 @@ basedir = os.path.abspath(os.path.dirname(__file__))
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
-MYSQL_DATABASE_HOST="vaultstore.mysql.database.azure.com"
-MYSQL_DATABASE_DB="k8svault"
-MYSQL_DATABASE_USER="dbadmin@vaultstore"
-MYSQL_DATABASE_PASSWORD="Pa$$w0rd"
+MYSQL_DATABASE_HOST=os.getenv("MYSQL_DATABASE_HOST", "vaultstore.mysql.database.azure.com")
+MYSQL_DATABASE_DB=os.getenv("MYSQL_DATABASE_DB", "k8svault")
+MYSQL_DATABASE_USER=os.getenv("MYSQL_DATABASE_USER","dbadmin@vaultstore")
+MYSQL_DATABASE_PASSWORD=os.getenv("MYSQL_DATABASE_PASSWORD","Pa$$w0rd")
 SSL_PATH="ssl/BaltimoreCyberTrustRoot.crt.pem"
 
 
