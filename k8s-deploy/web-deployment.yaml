@@ -1,0 +1,35 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: cryptogenweb
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: crytogenweb
+    spec:
+      containers:
+        - name: crytogenweb
+          image: prasanna1994/k8s-vault:latest
+          ports:
+            - name: http
+              containerPort: 5000
+              protocol : "TCP"
+          resources:
+            requests:
+              cpu: "256m"
+              memory: "256Mi"
+          securityContext:
+            privileged: True
+          env:
+            - name: "REDIS_URL"
+              value: "localhost"
+            - name: "REDIS_TOKEN"
+              value: ""
+        - name: redis
+          image: redis
+          ports:
+            - containerPort: 6379
+              name: redis
+              protocol: TCP
