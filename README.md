@@ -5,14 +5,12 @@ a database(currently supported) and on the filesystem/S3 (can be added later) us
 
 
 ## Installation
-
-pip install -r requirements.txt <br />
-python manage.py db upgrade <br />
-python worker.py <br />
-python manage.py runserver <br />
-
-
-And finally, browse to [http://localhost:5000/](http://localhost:5000).
+1. create k8s cluster using minikube/EKS/AKS <br />
+2. Install kubectl and clone the github repository <br />
+3. kubectl create -f k8s-deploy/db-pod.yaml <br />
+4. kubectl create -f k8s-deploy/db-service.yaml <br />
+5. kubectl create -f web-Deployment.yaml <br />
+6. kubectl create -f crytogen-service.yaml <br />
 
 ## Steps:
 1.Created Kubernetes Cluster on Azure using AKS and Terraform. <br />
@@ -38,3 +36,6 @@ And finally, browse to [http://localhost:5000/](http://localhost:5000).
 
 ## List of assets
 ![Alt text](static/images/asset_list.png?raw=true "get assets from db")
+
+## Clean UP
+kubectl delete -f k8s-deploy/
