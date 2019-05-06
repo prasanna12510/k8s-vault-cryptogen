@@ -7,11 +7,11 @@ spec:
   template:
     metadata:
       labels:
-        app: crytogenweb
+        app: cryptogenweb
     spec:
       containers:
         - name: crytogenweb
-          image:  prasanna1994/k8s-vault:dev
+          image: prasanna1994/k8s-vault:prod
           ports:
             - name: http
               containerPort: 5000
