@@ -11,7 +11,7 @@ spec:
     spec:
       containers:
         - name: crytogenweb
-          image: prasanna1994/k8s-vault:latest
+          image:  prasanna1994/k8s-vault:dev
           ports:
             - name: http
               containerPort: 5000
@@ -23,10 +23,8 @@ spec:
           securityContext:
             privileged: True
           env:
-            - name: "REDIS_URL"
+            - name: "REDIS_HOST"
               value: "localhost"
-            - name: "REDIS_TOKEN"
-              value: ""
         - name: redis
           image: redis
           ports:

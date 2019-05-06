@@ -12,6 +12,8 @@ echo "Deploying asset-flask app"
 
 source /app/.env
 
+python /app/manage.py db upgrade
+
 cp -r "/app/supervisord.conf" "/etc/supervisor/conf.d/flask-asset.conf"
 
 sed -i 's/^\(\[supervisord\]\)$/\1\nnodaemon=true/' /etc/supervisor/supervisord.conf
