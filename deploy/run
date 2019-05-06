@@ -12,7 +12,7 @@ echo "Deploying asset-flask app"
 
 source /app/.env
 
-python /app/manage.py db upgrade
+#python /app/manage.py db upgrade
 
 cp -r "/app/supervisord.conf" "/etc/supervisor/conf.d/flask-asset.conf"
 
